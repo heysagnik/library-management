@@ -1,5 +1,8 @@
-import mysql.connector as a 
-con=a.connect(host='localhost', user='root', passwd='root',database='library_app')
+import mysql.connector as a
+from datetime import date 
+today = date.today()
+
+con=a.connect(host='localhost', user='root', passwd='1234',database='library_app')
 
 def addbook():
     bn=input("Enter Book Name: ")
@@ -12,7 +15,7 @@ def addbook():
     c=con.cursor()
     c.execute(sql,data)
     con.commit()
-    print("\ \n n\nBook Added Successfully.......... \n\n\n\n")
+    print("\n \n n\nBook Added Successfully.......... \n\n\n\n")
     wait = input("\n\n\nPress enter to continue..... \n\n\n\n\n\n")
     main()
                  
@@ -20,7 +23,7 @@ def issueb():
     n=input("Enter Student Name: ")
     r=int(input("Enter Reg No.: "))
     co=int(input("Enter Book Code: "))
-    d=input("Enter Date: ")
+    d=today.strftime("%d/%m/%Y")
     a="insert into issue values(%s,%s,%s,%s);"
     data=(n,r,co,d)
     c=con.cursor()
@@ -35,7 +38,7 @@ def returnb():
     n=input("Enter Student Name: ")
     r=int(input("Enter Reg No.: "))
     co=int(input("Enter Book Code: "))
-    d=input("Enter Date: ")
+    d=today.strftime("%d/%m/%Y")
     a="insert into return_ values(%s,%s,%s,%s);"
     data=(n,r,co,d)
     c=con.cursor()
@@ -155,4 +158,3 @@ def main():
         print("Please try again........\n\n\n\n\n\n\n\n\n\n\n\n")
         main()
 main()
-
