@@ -4,9 +4,9 @@
 ``` sql
 create database library_app;
 use library_app;
-create table books (bname varchar(50), author varchar(50),bcode varchar(50), total int(20), subject varchar(50));
-create table issue (name varchar(50),regno varchar(50),bcode int(50),issue_date date);
-create table retarn (name varchar(50),regno varchar(50),bcode int(50),return_date date);
+create table books (bname char(30), author char(50),bcode int(6) PRIMARY KEY, total int(20), subject char(20));
+create table issue (name char(10),roll int(3) PRIMARY KEY ,bcode int(6) ,issue_date date);
+create table retarn (name char(10),roll int(3) PRIMARY KEY,bcode int(6) ,return_date date);
 ```
 
 
